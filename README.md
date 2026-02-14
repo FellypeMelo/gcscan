@@ -19,6 +19,41 @@ O conteúdo GC representa a porcentagem de bases de guanina (G) e citosina (C) e
 - **Visualização gráfica**: Gera gráficos de barras com Matplotlib
 - **Exportação**: Salva resultados em formato de imagem (.png)
 
+## Estrutura de Dados
+
+Este projeto possui **duas pastas** distintas para dados:
+
+### 📁 `test_data/` - Dados Sintéticos (Commitados)
+Contém **55+ arquivos FASTA fabricados** automaticamente para testes. Estes dados são:
+- ✅ **Commitados no GitHub** (incluídos no repositório)
+- 🧪 **Sintéticos** (gerados algoritmicamente)
+- 📊 **Variados** (diferentes conteúdos GC, tamanhos, cenários)
+- 🎯 **Documentados** (cada arquivo tem propósito específico)
+
+**Como regenerar:**
+```bash
+python generate_test_data.py
+```
+
+### 📁 `data/` - Dados Reais (Gitignored)
+Pasta para seus **dados reais de pesquisa**. Por padrão:
+- 🚫 **NÃO é commitada** no GitHub (protegida por `.gitignore`)
+- 🧬 **Dados reais** do NCBI, sequenciamento, etc.
+- 💾 **Arquivos grandes** permitidos
+- 🔒 **Privacidade** mantida
+
+**Como usar:**
+```bash
+# Baixe dados reais do NCBI ou outros bancos
+# Salve em data/
+python main.py  # Edite o código para apontar para data/seu_arquivo.fasta
+```
+
+**Tipos de dados suportados:**
+- Nucleotide FASTA (.fasta, .fa, .fna) ← **Recomendado**
+- Coding Region (CDS) - Para ORFs específicos
+- Multi-FASTA - Múltiplas sequências
+
 ## Instalação
 
 ### Pré-requisitos
