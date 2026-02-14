@@ -2,7 +2,7 @@
 GCScan - Dados de Teste Sintéticos
 ======================================================================
 
-Gerado em: 2026-02-14 17:31:58
+Gerado em: 2026-02-14 17:42:00
 Total de datasets: 55
 
 ATENÇÃO: Estes são dados FABRICADOS para teste.
@@ -25,20 +25,20 @@ gcscan_test_12_very_high_gc.fasta - GC content ~75% (1 seqs)
 gcscan_test_13_very_high_gc.fasta - GC content ~75% (1 seqs)
 gcscan_test_14_very_high_gc.fasta - GC content ~75% (1 seqs)
 gcscan_test_15_very_high_gc.fasta - GC content ~75% (1 seqs)
-gcscan_test_16_multi_7seqs.fasta - 7 sequences (7 seqs)
-gcscan_test_17_multi_9seqs.fasta - 9 sequences (9 seqs)
-gcscan_test_18_multi_4seqs.fasta - 4 sequences (4 seqs)
-gcscan_test_19_multi_3seqs.fasta - 3 sequences (3 seqs)
-gcscan_test_20_multi_8seqs.fasta - 8 sequences (8 seqs)
+gcscan_test_16_multi_9seqs.fasta - 9 sequences (9 seqs)
+gcscan_test_17_multi_8seqs.fasta - 8 sequences (8 seqs)
+gcscan_test_18_multi_10seqs.fasta - 10 sequences (10 seqs)
+gcscan_test_19_multi_8seqs.fasta - 8 sequences (8 seqs)
+gcscan_test_20_multi_3seqs.fasta - 3 sequences (3 seqs)
 gcscan_test_21_multi_10seqs.fasta - 10 sequences (10 seqs)
-gcscan_test_22_multi_10seqs.fasta - 10 sequences (10 seqs)
-gcscan_test_23_multi_3seqs.fasta - 3 sequences (3 seqs)
-gcscan_test_24_multi_8seqs.fasta - 8 sequences (8 seqs)
-gcscan_test_25_multi_3seqs.fasta - 3 sequences (3 seqs)
-gcscan_test_26_multi_9seqs.fasta - 9 sequences (9 seqs)
-gcscan_test_27_multi_6seqs.fasta - 6 sequences (6 seqs)
-gcscan_test_28_multi_5seqs.fasta - 5 sequences (5 seqs)
-gcscan_test_29_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_22_multi_4seqs.fasta - 4 sequences (4 seqs)
+gcscan_test_23_multi_5seqs.fasta - 5 sequences (5 seqs)
+gcscan_test_24_multi_5seqs.fasta - 5 sequences (5 seqs)
+gcscan_test_25_multi_10seqs.fasta - 10 sequences (10 seqs)
+gcscan_test_26_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_27_multi_9seqs.fasta - 9 sequences (9 seqs)
+gcscan_test_28_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_29_multi_6seqs.fasta - 6 sequences (6 seqs)
 gcscan_test_30_multi_10seqs.fasta - 10 sequences (10 seqs)
 gcscan_test_31_very_short.fasta - Very short sequence (50bp) (1 seqs)
 gcscan_test_32_very_long.fasta - Very long sequence (500bp) (1 seqs)

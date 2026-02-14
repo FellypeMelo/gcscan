@@ -49,10 +49,25 @@ def generate_sequence(length, gc_content_target=None):
 
 
 def create_fasta_entry(seq_id, sequence, description=""):
-    """Cria uma entrada no formato FASTA."""
+    """
+    Cria uma entrada no formato FASTA padrão NCBI.
+
+    Formato:
+    >identificador descrição
+    SEQUENCIAQUEBRADAEMLINHASDE60CARACTERES
+    """
+    # Cria header
     if description:
-        return f">{seq_id} {description}\n{sequence}\n"
-    return f">{seq_id}\n{sequence}\n"
+        header = f">{seq_id} {description}"
+    else:
+        header = f">{seq_id}"
+
+    # Quebra sequência em linhas de 60 caracteres (padrão NCBI)
+    lines = []
+    for i in range(0, len(sequence), 60):
+        lines.append(sequence[i : i + 60])
+
+    return header + "\n" + "\n".join(lines) + "\n"
 
 
 def generate_test_dataset_1_single_sequences():
