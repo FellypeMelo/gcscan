@@ -148,17 +148,18 @@ gcscan/
 - [x] Geração de gráficos simples
 - [x] Documentação inicial
 
-#### Milestone 2: Melhorias de Interface 🚧
-- [ ] Suporte a argumentos de linha de comando (argparse)
-- [ ] Opção de saída em formato CSV/TSV
-- [ ] Interface web simples (Streamlit)
-- [ ] Suporte a múltiplos arquivos simultâneos
+#### Milestone 2: Melhorias de Interface ✅
+- [x] Suporte a argumentos de linha de comando (argparse)
+- [x] Opção de saída em formato CSV/TSV
+- [x] Interface web profissional (Streamlit)
+- [x] Suporte a múltiplos arquivos simultâneos
 
-#### Milestone 3: Análises Avançadas 📊
+#### Milestone 3: Análises Avançadas e Visualização Profissional 🚧
+- [x] Estatísticas descritivas (média, mediana, desvio padrão)
+- [x] Visualização Adaptativa (Histogramas vs Barras)
+- [x] Comparação entre múltiplas amostras (Dashboard)
 - [ ] Análise de janelas deslizantes (sliding window)
 - [ ] Detecção de ilhas CpG
-- [ ] Comparação entre múltiplas amostras
-- [ ] Estatísticas descritivas (média, mediana, desvio padrão)
 
 #### Milestone 4: Integração e Automação 🔄
 - [ ] Pipeline com outros módulos (FastaFlow)
