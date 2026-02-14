@@ -1,0 +1,2 @@
+biopython==1.81
+matplotlib==3.7.1
