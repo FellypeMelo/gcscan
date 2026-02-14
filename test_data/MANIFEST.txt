@@ -1,0 +1,67 @@
+======================================================================
+GCScan - Dados de Teste Sintéticos
+======================================================================
+
+Gerado em: 2026-02-14 17:31:58
+Total de datasets: 55
+
+ATENÇÃO: Estes são dados FABRICADOS para teste.
+Para dados reais, use a pasta data/
+
+Lista de arquivos:
+----------------------------------------------------------------------
+gcscan_test_01_very_low_gc.fasta - GC content ~15% (1 seqs)
+gcscan_test_02_very_low_gc.fasta - GC content ~15% (1 seqs)
+gcscan_test_03_very_low_gc.fasta - GC content ~15% (1 seqs)
+gcscan_test_04_very_low_gc.fasta - GC content ~15% (1 seqs)
+gcscan_test_05_very_low_gc.fasta - GC content ~15% (1 seqs)
+gcscan_test_06_medium_gc.fasta - GC content ~50% (1 seqs)
+gcscan_test_07_medium_gc.fasta - GC content ~50% (1 seqs)
+gcscan_test_08_medium_gc.fasta - GC content ~50% (1 seqs)
+gcscan_test_09_medium_gc.fasta - GC content ~50% (1 seqs)
+gcscan_test_10_medium_gc.fasta - GC content ~50% (1 seqs)
+gcscan_test_11_very_high_gc.fasta - GC content ~75% (1 seqs)
+gcscan_test_12_very_high_gc.fasta - GC content ~75% (1 seqs)
+gcscan_test_13_very_high_gc.fasta - GC content ~75% (1 seqs)
+gcscan_test_14_very_high_gc.fasta - GC content ~75% (1 seqs)
+gcscan_test_15_very_high_gc.fasta - GC content ~75% (1 seqs)
+gcscan_test_16_multi_7seqs.fasta - 7 sequences (7 seqs)
+gcscan_test_17_multi_9seqs.fasta - 9 sequences (9 seqs)
+gcscan_test_18_multi_4seqs.fasta - 4 sequences (4 seqs)
+gcscan_test_19_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_20_multi_8seqs.fasta - 8 sequences (8 seqs)
+gcscan_test_21_multi_10seqs.fasta - 10 sequences (10 seqs)
+gcscan_test_22_multi_10seqs.fasta - 10 sequences (10 seqs)
+gcscan_test_23_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_24_multi_8seqs.fasta - 8 sequences (8 seqs)
+gcscan_test_25_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_26_multi_9seqs.fasta - 9 sequences (9 seqs)
+gcscan_test_27_multi_6seqs.fasta - 6 sequences (6 seqs)
+gcscan_test_28_multi_5seqs.fasta - 5 sequences (5 seqs)
+gcscan_test_29_multi_3seqs.fasta - 3 sequences (3 seqs)
+gcscan_test_30_multi_10seqs.fasta - 10 sequences (10 seqs)
+gcscan_test_31_very_short.fasta - Very short sequence (50bp) (1 seqs)
+gcscan_test_32_very_long.fasta - Very long sequence (500bp) (1 seqs)
+gcscan_test_33_extreme_low_gc.fasta - Extreme low GC ~5% (1 seqs)
+gcscan_test_34_extreme_high_gc.fasta - Extreme high GC ~95% (1 seqs)
+gcscan_test_35_zero_gc.fasta - Zero GC content (only AT) (1 seqs)
+gcscan_test_36_100percent_gc.fasta - 100% GC content (only GC) (1 seqs)
+gcscan_test_37_many_short.fasta - 20 short sequences (20 seqs)
+gcscan_test_38_few_long.fasta - 3 long sequences (3 seqs)
+gcscan_test_39_extreme_variation.fasta - Extreme GC variation (5 seqs)
+gcscan_test_40_perfect_balance.fasta - Perfect 50-50 balance (1 seqs)
+gcscan_test_41_plasmodium_like.fasta - Plasmodium-like (~19% GC) (1 seqs)
+gcscan_test_42_streptomyces_like.fasta - Streptomyces-like (~72% GC) (1 seqs)
+gcscan_test_43_human_like.fasta - Human-like (~41% GC) (1 seqs)
+gcscan_test_44_ecoli_like.fasta - E. coli-like (~51% GC) (1 seqs)
+gcscan_test_45_mycoplasma_like.fasta - Mycoplasma-like (~32% GC) (1 seqs)
+gcscan_test_46_organelles.fasta - Mixed organelles (3 seqs)
+gcscan_test_47_genes_intergenic.fasta - Genes vs intergenic (3 seqs)
+gcscan_test_48_exons_introns.fasta - Exons and introns (3 seqs)
+gcscan_test_49_evolution.fasta - Evolutionary variants (5 seqs)
+gcscan_test_50_metagenomics.fasta - Metagenomic sample (8 seqs)
+gcscan_test_51_massive_50seqs.fasta - 50 sequences stress test (50 seqs)
+gcscan_test_52_massive_length.fasta - 5 sequences of 1000bp (5 seqs)
+gcscan_test_53_alternating.fasta - Alternating AT/GC blocks (1 seqs)
+gcscan_test_54_gradual_gc.fasta - Gradual GC increase (7 seqs)
+gcscan_test_55_random.fasta - Completely random (10 seqs)

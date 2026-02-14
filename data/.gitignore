@@ -1,0 +1,22 @@
+# Ignore all real data files
+# Add your real .fasta, .fa, .fna files here for local testing
+# These files should NOT be committed to GitHub
+*.fasta
+*.fa
+*.fna
+*.fastq
+*.fq
+*.gz
+
+# Ignore large files
+*.zip
+*.tar.gz
+*.tar
+
+# Ignore processed outputs
+processed/
+output/
+results/
+
+# Keep .gitkeep to maintain directory structure
+!.gitkeep
