@@ -1,13 +1,13 @@
 # Implementation Plan: Sliding Window and CpG Island Detection
 
-## Phase 1: Core Analysis Logic
+## Phase 1: Core Analysis Logic [checkpoint: 95be8fa]
 - [x] Task: Implement Sliding Window GC calculation [3cbebff]
     - [x] Write Tests: Verify GC content for various window/step sizes
     - [x] Implement Feature: Core sliding window iterator and calculation
 - [x] Task: Implement CpG Island Detection logic [f8892fc]
     - [x] Write Tests: Verify detection criteria against synthetic sequences
     - [x] Implement Feature: Algorithm to identify CpG islands
-- [ ] Task: Conductor - User Manual Verification 'Core Analysis Logic' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Core Analysis Logic' (Protocol in workflow.md) [95be8fa]
 
 ## Phase 2: CLI and Web Integration
 - [ ] Task: Add sliding window options to CLI (`main.py`)
