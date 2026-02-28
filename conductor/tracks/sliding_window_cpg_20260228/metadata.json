@@ -1,0 +1,8 @@
+{
+  "track_id": "sliding_window_cpg_20260228",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-28T13:26:00Z",
+  "updated_at": "2026-02-28T13:26:00Z",
+  "description": "Análise de janelas deslizantes (sliding window) e Detecção de ilhas CpG"
+}
