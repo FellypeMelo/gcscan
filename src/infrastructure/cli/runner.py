@@ -11,6 +11,7 @@ from src.domain.analysis import (
     calculate_gc_percentage, calculate_sliding_window, detect_cpg_islands
 )
 from src.domain.statistics import calculate_descriptive_stats
+from src.infrastructure.parallel.dispatcher import process_fasta_parallel
 
 def run_analysis(args):
     """Orquestra a análise para os arquivos fornecidos."""
@@ -43,18 +44,35 @@ def _process_single_file(file_path: str, args):
     print_file_start(base_name)
     
     results = {}
-    for seq_id, sequence in read_fasta(file_path):
-        gc = calculate_gc_percentage(sequence)
-        results[seq_id] = gc
+    
+    if getattr(args, 'parallel', False):
+        window = args.window if args.window else 0
+        step = args.step if args.step else 0
+        workers = getattr(args, 'workers', None)
         
-        if args.window:
-            step = args.step if args.step else args.window
-            sw = calculate_sliding_window(sequence, args.window, step)
-            print_sliding_window_info(seq_id, len(sw))
+        results, all_islands, all_windows = process_fasta_parallel(
+            file_path, window, step, args.cpg, workers
+        )
+        
+        for seq_id in results:
+            if args.window and seq_id in all_windows:
+                print_sliding_window_info(seq_id, len(all_windows[seq_id]))
+            if args.cpg and seq_id in all_islands:
+                print_cpg_islands(seq_id, all_islands[seq_id])
+                
+    else:
+        for seq_id, sequence in read_fasta(file_path):
+            gc = calculate_gc_percentage(sequence)
+            results[seq_id] = gc
             
-        if args.cpg:
-            islands = detect_cpg_islands(sequence)
-            print_cpg_islands(seq_id, islands)
+            if args.window:
+                step = args.step if args.step else args.window
+                sw = calculate_sliding_window(sequence, args.window, step)
+                print_sliding_window_info(seq_id, len(sw))
+                
+            if args.cpg:
+                islands = detect_cpg_islands(sequence)
+                print_cpg_islands(seq_id, islands)
 
     if results:
         stats = calculate_descriptive_stats(list(results.values()))

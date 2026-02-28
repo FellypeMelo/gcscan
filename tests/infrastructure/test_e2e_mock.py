@@ -56,9 +56,9 @@ def test_cli_e2e_execution():
     """Testa a execução E2E da CLI com o mock data."""
     output_dir = "results"
     
-    # Executa a CLI
+    # Executa a CLI com paralelismo ativado
     result = subprocess.run(
-        [sys.executable, "main.py", MOCK_FASTA_PATH, "--window", "100", "--step", "50", "--cpg"],
+        [sys.executable, "main.py", MOCK_FASTA_PATH, "--window", "100", "--step", "50", "--cpg", "--parallel"],
         capture_output=True,
         text=True
     )

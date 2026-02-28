@@ -1,0 +1,3 @@
+"""
+Módulo para paralelização.
+"""
