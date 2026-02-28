@@ -65,6 +65,84 @@ def calculate_sliding_window_gc(sequence: str, window_size: int, step_size: int)
     return results
 
 
+def detect_cpg_islands(sequence: str, min_len: int = 200, min_gc: float = 50.0, min_oe: float = 0.6) -> List[Tuple[int, int, float, float]]:
+    """
+    Identifica ilhas CpG em uma sequência de DNA.
+    Critérios padrão: Comprimento > 200bp, GC > 50%, Obs/Exp CpG > 0.6.
+    
+    Entrada:
+        sequence (str): Sequência de DNA.
+        min_len (int): Comprimento mínimo da ilha.
+        min_gc (float): Porcentagem mínima de GC.
+        min_oe (float): Razão mínima Observado/Esperado de CpG.
+        
+    Saída:
+        list: Lista de tuplas (início, fim, %GC, Obs/Exp).
+    """
+    islands = []
+    seq_str = str(sequence).upper()
+    n = len(seq_str)
+    
+    # Busca: usa uma janela menor para encontrar "sementes" e depois expande
+    seed_size = 50
+    step = 10
+    
+    i = 0
+    while i < n - seed_size + 1:
+        subseq = seq_str[i : i + seed_size]
+        
+        # Calcular GC da semente
+        g_count = subseq.count('G')
+        c_count = subseq.count('C')
+        gc_val = ((g_count + c_count) / seed_size) * 100
+        
+        if gc_val >= min_gc:
+            # Calcular Obs/Exp CpG da semente
+            cpg_count = subseq.count('CG')
+            oe_ratio = (cpg_count * seed_size) / (c_count * g_count) if (c_count * g_count) > 0 else 0
+                
+            if oe_ratio >= min_oe:
+                # Semente encontrada! Expandir para esquerda e direita.
+                start = i
+                end = i + seed_size
+                
+                # Expandir para a esquerda (bases G ou C)
+                while start > 0 and seq_str[start - 1] in "GC":
+                    start -= 1
+                
+                # Expandir para a direita (bases G ou C)
+                while end < n and seq_str[end] in "GC":
+                    end += 1
+                
+                # Recalcular estatísticas finais da ilha expandida
+                final_sub = seq_str[start:end]
+                
+                # Aparar pontas que não sejam G ou C
+                while len(final_sub) > 0 and final_sub[0] not in "GC":
+                    start += 1
+                    final_sub = seq_str[start:end]
+                while len(final_sub) > 0 and final_sub[-1] not in "GC":
+                    end -= 1
+                    final_sub = seq_str[start:end]
+                
+                f_len = len(final_sub)
+                if f_len >= min_len:
+                    f_g = final_sub.count('G')
+                    f_c = final_sub.count('C')
+                    f_gc = ((f_g + f_c) / f_len) * 100
+                    f_cpg = final_sub.count('CG')
+                    f_oe = (f_cpg * f_len) / (f_c * f_g) if (f_c * f_g) > 0 else 0
+                    
+                    if f_gc >= min_gc and f_oe >= min_oe:
+                        islands.append((start, end, f_gc, f_oe))
+                        i = end
+                        continue
+        
+        i += step
+        
+    return islands
+
+
 def calculate_statistics(results: Dict[str, float]) -> Dict[str, float]:
     """
     Calcula estatísticas descritivas (Média, Mediana, Desvio Padrão).
