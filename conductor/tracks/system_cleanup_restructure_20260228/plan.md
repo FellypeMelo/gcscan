@@ -60,4 +60,4 @@
 - [x] Task: Update documentation and Conductor index. (Updated README.md and tech-stack.md)
     - [ ] Reflect new folder hierarchy in `README.md`.
     - [ ] Update `conductor/index.md` paths.
-- [ ] Task: Conductor - User Manual Verification 'Final Verification & Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Final Verification & Integration' (Protocol in workflow.md) [checkpoint: 12f1aec]
