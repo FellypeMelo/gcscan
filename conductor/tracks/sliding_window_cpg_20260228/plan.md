@@ -4,9 +4,9 @@
 - [x] Task: Implement Sliding Window GC calculation [3cbebff]
     - [x] Write Tests: Verify GC content for various window/step sizes
     - [x] Implement Feature: Core sliding window iterator and calculation
-- [ ] Task: Implement CpG Island Detection logic
-    - [ ] Write Tests: Verify detection criteria against synthetic sequences
-    - [ ] Implement Feature: Algorithm to identify CpG islands
+- [x] Task: Implement CpG Island Detection logic [f8892fc]
+    - [x] Write Tests: Verify detection criteria against synthetic sequences
+    - [x] Implement Feature: Algorithm to identify CpG islands
 - [ ] Task: Conductor - User Manual Verification 'Core Analysis Logic' (Protocol in workflow.md)
 
 ## Phase 2: CLI and Web Integration
