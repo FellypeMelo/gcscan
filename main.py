@@ -16,32 +16,35 @@ from Bio import SeqIO
 from Bio.SeqUtils import gc_fraction
 
 
-def calculate_gc_content(fasta_path: str) -> Dict[str, float]:
-    """
-    Calcula o conteúdo GC de cada sequência em um arquivo FASTA.
-    
-    Entrada:
-        fasta_path (str): Caminho para o arquivo FASTA.
-    
-    Saída:
-        dict: Dicionário onde a chave é o ID da sequência e o valor é a porcentagem de GC.
-    
-    Complexidade (Big O):
-        O(N), onde N é o número total de nucleotídeos no arquivo.
-        Precisamos iterar por cada base para contar Gs e Cs.
-    """
+def calculate_gc_content(fasta_path: str, window: Optional[int] = None, step: Optional[int] = None, cpg: bool = False) -> Dict[str, float]:
+    """Calcula o conteúdo GC global e realiza análises opcionais."""
     results = {}
     try:
-        # SeqIO.parse retorna um iterador, processando uma sequência por vez (eficiente em memória)
         for record in SeqIO.parse(fasta_path, "fasta"):
-            # O(L) onde L é o comprimento da sequência atual
             gc_percent = gc_fraction(record.seq) * 100
             results[record.id] = gc_percent
+            if window:
+                _run_sliding_window(record, window, step)
+            if cpg:
+                _run_cpg_detection(record)
     except Exception as e:
         print(f"Erro ao ler arquivo {fasta_path}: {e}")
         sys.exit(1)
-
     return results
+
+def _run_sliding_window(record, window, step):
+    s = step if step else window
+    sw_results = calculate_sliding_window_gc(record.seq, window, s)
+    print(f"    > Janela Deslizante ({record.id}): {len(sw_results)} janelas calculadas.")
+
+def _run_cpg_detection(record):
+    islands = detect_cpg_islands(record.seq)
+    if islands:
+        print(f"    > Ilhas CpG ({record.id}): {len(islands)} encontradas.")
+        for start, end, gc, oe in islands:
+            print(f"      - [{start}:{end}] GC: {gc:.1f}%, Obs/Exp: {oe:.2f}")
+    else:
+        print(f"    > Ilhas CpG ({record.id}): Nenhuma encontrada.")
 
 
 def calculate_sliding_window_gc(sequence: str, window_size: int, step_size: int) -> List[float]:
@@ -310,6 +313,24 @@ def main():
         help="Diretório onde os resultados (CSV e PNG) serão salvos. Padrão: 'results/'"
     )
 
+    # Novos Argumentos de Análise
+    parser.add_argument(
+        "--window", "-w",
+        type=int,
+        help="Tamanho da janela para análise deslizante (opcional)."
+    )
+    parser.add_argument(
+        "--step", "-s",
+        type=int,
+        default=None,
+        help="Tamanho do passo para análise deslizante (padrão: igual ao window)."
+    )
+    parser.add_argument(
+        "--cpg",
+        action="store_true",
+        help="Ativar detecção de ilhas CpG."
+    )
+
     args = parser.parse_args()
 
     # Validar entrada
@@ -348,7 +369,7 @@ def main():
         print(f"\nProcessando: {base_name}...")
         
         # 1. Calcular
-        results = calculate_gc_content(fasta_file)
+        results = calculate_gc_content(fasta_file, args.window, args.step, args.cpg)
         
         if not results:
             print(f"  Aviso: Nenhuma sequência encontrada em {base_name}.")

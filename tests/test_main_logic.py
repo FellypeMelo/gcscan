@@ -3,7 +3,7 @@ import csv
 import sys
 import pytest
 import numpy as np
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, ANY
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from main import (
@@ -149,6 +149,28 @@ def test_main_cli(mock_plot, mock_csv, mock_calc, tmp_path):
         main()
     
     mock_calc.assert_called_once()
+
+@patch("main.calculate_gc_content")
+@patch("main.save_results_to_csv")
+@patch("main.plot_gc_content")
+def test_main_cli_new_features(mock_plot, mock_csv, mock_calc, tmp_path):
+    """Test main CLI with sliding window and CpG island arguments."""
+    fasta_file = tmp_path / "test.fasta"
+    fasta_file.write_text(">seq1\nATGCATGC\n")
+    
+    mock_calc.return_value = {"seq1": 50.0}
+    
+    test_args = [
+        "main.py", str(fasta_file), 
+        "--window", "4", 
+        "--step", "4",
+        "--cpg"
+    ]
+    
+    with patch("sys.argv", test_args):
+        main()
+    
+    mock_calc.assert_called_once_with(ANY, 4, 4, True)
 
 @patch("main.calculate_gc_content")
 def test_main_cli_directory(mock_calc, tmp_path):
