@@ -1,0 +1,39 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.0.2, pluggy-1.6.0
+rootdir: G:\Programas\gcscan
+plugins: anyio-4.12.1, cov-7.0.0
+collected 26 items
+
+tests\domain\test_analysis.py .......                                    [ 26%]
+tests\domain\test_statistics.py ..                                       [ 34%]
+tests\infrastructure\test_cli.py .....                                   [ 53%]
+tests\infrastructure\test_e2e_mock.py ..                                 [ 61%]
+tests\infrastructure\test_io.py ..                                       [ 69%]
+tests\infrastructure\test_plotting.py ..                                 [ 76%]
+tests\infrastructure\test_web.py ......                                  [100%]
+
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.10.6-final-0 _______________
+
+Name                                      Stmts   Miss  Cover
+-------------------------------------------------------------
+src\__init__.py                               0      0   100%
+src\domain\__init__.py                        0      0   100%
+src\domain\analysis.py                       56      3    95%
+src\domain\models.py                         22      0   100%
+src\domain\statistics.py                     17      0   100%
+src\infrastructure\__init__.py                0      0   100%
+src\infrastructure\cli\__init__.py            0      0   100%
+src\infrastructure\cli\formatter.py          22      1    95%
+src\infrastructure\cli\parser.py              9      0   100%
+src\infrastructure\cli\runner.py             47      6    87%
+src\infrastructure\io\__init__.py             0      0   100%
+src\infrastructure\io\exporters.py            8      0   100%
+src\infrastructure\io\fasta.py                5      0   100%
+src\infrastructure\plotting\__init__.py       0      0   100%
+src\infrastructure\plotting\adapters.py      43      0   100%
+src\infrastructure\web\__init__.py            0      0   100%
+src\infrastructure\web\components.py         89      6    93%
+-------------------------------------------------------------
+TOTAL                                       318     16    95%
+============================= 26 passed in 5.51s ==============================
