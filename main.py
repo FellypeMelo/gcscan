@@ -44,6 +44,27 @@ def calculate_gc_content(fasta_path: str) -> Dict[str, float]:
     return results
 
 
+def calculate_sliding_window_gc(sequence: str, window_size: int, step_size: int) -> List[float]:
+    """
+    Calcula o conteúdo GC em janelas deslizantes ao longo de uma sequência.
+    
+    Entrada:
+        sequence (str): Sequência de DNA.
+        window_size (int): Tamanho da janela.
+        step_size (int): Tamanho do passo.
+        
+    Saída:
+        list: Lista de porcentagens de GC para cada janela.
+    """
+    results = []
+    # Itera pela sequência com o passo definido
+    for i in range(0, len(sequence) - window_size + 1, step_size):
+        window = sequence[i : i + window_size]
+        gc_val = gc_fraction(window) * 100
+        results.append(gc_val)
+    return results
+
+
 def calculate_statistics(results: Dict[str, float]) -> Dict[str, float]:
     """
     Calcula estatísticas descritivas (Média, Mediana, Desvio Padrão).
