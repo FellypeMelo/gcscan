@@ -1,9 +1,9 @@
 # Implementation Plan: Sliding Window and CpG Island Detection
 
 ## Phase 1: Core Analysis Logic
-- [ ] Task: Implement Sliding Window GC calculation
-    - [ ] Write Tests: Verify GC content for various window/step sizes
-    - [ ] Implement Feature: Core sliding window iterator and calculation
+- [x] Task: Implement Sliding Window GC calculation [3cbebff]
+    - [x] Write Tests: Verify GC content for various window/step sizes
+    - [x] Implement Feature: Core sliding window iterator and calculation
 - [ ] Task: Implement CpG Island Detection logic
     - [ ] Write Tests: Verify detection criteria against synthetic sequences
     - [ ] Implement Feature: Algorithm to identify CpG islands
