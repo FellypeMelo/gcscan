@@ -58,21 +58,52 @@ cd gcscan
 pip install -r requirements.txt
 ```
 
-## Como Usar
+## Como Usar (Passo a Passo)
 
-### Interface de Linha de Comando (CLI)
+O GCScan oferece duas formas de uso: via Interface de Linha de Comando (CLI) para automações ou via Interface Web (Streamlit) para análises visuais iterativas.
+
+### 1. Preparando os Dados
+Antes de executar qualquer análise, coloque seus arquivos FASTA (sequências de DNA) na pasta `data/`.
+*Dica: Um arquivo de exemplo (`sample.fasta`) já está disponível para testes.*
+
+### 2. Usando a Interface Web (Dashboard)
+A interface web é a forma mais interativa de explorar suas sequências.
+
+1. Inicie a aplicação:
+   ```bash
+   streamlit run app.py
+   ```
+2. O seu navegador abrirá automaticamente em `http://localhost:8501`.
+3. Arraste e solte o seu arquivo `.fasta` na área de upload.
+4. Ajuste os parâmetros de análise na barra lateral:
+   - **Tamanho da Janela (Window Size):** Define a resolução da análise deslizante.
+   - **Tamanho do Passo (Step Size):** Define o avanço da janela.
+   - **Detectar Ilhas CpG:** Ative para mapear densidade de dinucleotídeos CG.
+5. Os gráficos interativos e resumos estatísticos serão gerados em tempo real na tela.
+
+### 3. Usando a Interface de Linha de Comando (CLI)
+A CLI é ideal para processamento em lote ou integração em pipelines de bioinformática.
+
+**Exemplo básico (Cálculo Global):**
 ```bash
-# Análise básica
 python main.py data/sample.fasta
+```
 
-# Análise completa com janelas e CpG
+**Exemplo avançado (Janela Deslizante + Detecção CpG):**
+```bash
 python main.py data/sample.fasta --window 100 --step 50 --cpg
 ```
 
-### Interface Web (Streamlit)
-```bash
-streamlit run app.py
-```
+**Opções disponíveis:**
+- `--window`: Tamanho da janela para análise local (ex: 100).
+- `--step`: Tamanho do passo de deslocamento da janela (ex: 50).
+- `--cpg`: Flag para ativar a detecção de Ilhas CpG.
+- `--output`: Diretório opcional para salvar os resultados (padrão: `results/`).
+
+### 4. Coletando os Resultados
+Após a execução via CLI, os resultados serão automaticamente exportados para a pasta `results/`:
+- **`[nome_do_arquivo]_gc.csv`**: Arquivo de dados brutos contendo posições, GC% local e status de CpG.
+- **`[nome_do_arquivo]_gc_analysis.png`**: Gráfico em alta resolução com a variação do conteúdo GC e marcação das ilhas CpG.
 
 ## Desenvolvimento (AI-XP)
 
