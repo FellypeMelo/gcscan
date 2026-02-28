@@ -10,10 +10,14 @@
 - [x] Task: Conductor - User Manual Verification 'Core Analysis Logic' (Protocol in workflow.md) [95be8fa]
 
 ## Phase 2: CLI and Web Integration
-- [ ] Task: Add sliding window options to CLI (`main.py`)
-    - [ ] Write Tests: Verify CLI arguments and output formats
-    - [ ] Implement Feature: Update `argparse` and processing loop
+- [x] Task: Add sliding window options to CLI (`main.py`) [5b2ba36]
+    - [x] Phase 1: Write Failing Tests (argparse, output logic)
+    - [x] Phase 2: Implement CLI enhancements (sliding window & CpG args)
+    - [x] Phase 3: Optimize CLI code and error handling
+    - [x] Verification: Coverage >90% and Quality Gates
 - [ ] Task: Integrate features into Web UI (`app.py`)
-    - [ ] Write Tests: Verify UI components and data flow
-    - [ ] Implement Feature: Add controls and interactive charts
+    - [ ] Phase 🔴 RED: Write Failing Tests (Streamlit components and data flow)
+    - [ ] Phase 🟢 GREEN: Implement Web UI features (interactive charts & results)
+    - [ ] Phase 🔵 REFACTOR: Optimize UI logic and visual clarity
+    - [ ] Verification: Coverage >90% and Quality Gates
 - [ ] Task: Conductor - User Manual Verification 'CLI and Web Integration' (Protocol in workflow.md)
