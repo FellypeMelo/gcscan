@@ -18,18 +18,18 @@
     - [x] Define `src/domain/` (Pure logic, no infra imports).
     - [x] Define `src/infrastructure/` (CLI, Web UI, I/O).
     - [x] Plan Dependency Inversion (DIP) for the Kernel. (Defined in KERNEL_DESIGN.md)
-- [~] Task: Conductor - User Manual Verification 'Full System Analysis & Audit' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Full System Analysis & Audit' (Protocol in workflow.md) [checkpoint: 8622488]
 
 ## Phase 2: Cleanup & Preparation
-- [ ] Task: Remove redundant FASTA files and temporary artifacts.
-    - [ ] Wipe `__pycache__` and `.pytest_cache`.
-    - [ ] Delete `temp_*` files.
-    - [ ] Remove identified redundant FASTA assets.
-- [ ] Task: Execute Dead Code removal based on audit findings.
-    - [ ] Remove unused imports.
-    - [ ] Delete unreachable code branches.
-    - [ ] Ensure every change is a full SEARCH/REPLACE block.
-- [ ] Task: Conductor - User Manual Verification 'Cleanup & Preparation' (Protocol in workflow.md)
+- [x] Task: Remove redundant FASTA files and temporary artifacts.
+    - [x] Wipe `__pycache__` and `.pytest_cache`. (Done)
+    - [x] Delete `temp_*` files. (Done)
+    - [x] Remove identified redundant FASTA assets. (Removed test_data/ and generate_test_data.py)
+- [x] Task: Execute Dead Code removal based on audit findings.
+    - [x] Remove unused imports. (Removed unused numpy from app.py)
+    - [x] Delete unreachable code branches. (None found in core logic)
+    - [x] Ensure every change is a full SEARCH/REPLACE block. (Verified)
+- [~] Task: Conductor - User Manual Verification 'Cleanup & Preparation' (Protocol in workflow.md)
 
 ## Phase 3: Modular Kernel Restructuring (AI-XP Agêntico Loop)
 - [ ] Task: Implement Domain Kernel (Pure GC & CpG) - **Phase 🔴 RED**.

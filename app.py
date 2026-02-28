@@ -13,7 +13,6 @@ Funcionalidades:
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import os
 from Bio import SeqIO
 from main import (
