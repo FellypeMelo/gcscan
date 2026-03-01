@@ -2,7 +2,10 @@ import pytest
 from src.domain.analysis import (
     calculate_gc_percentage,
     calculate_sliding_window,
-    detect_cpg_islands
+    detect_cpg_islands,
+    _find_first_gc,
+    _find_last_gc,
+    _expand_and_validate,
 )
 from src.domain.models import CpGIsland
 
@@ -60,3 +63,21 @@ def test_detect_cpg_islands_multiple():
     assert results[0].end == 250
     assert results[1].start == 450
     assert results[1].end == 750
+
+
+def test_find_first_gc_returns_minus_one_for_at_only():
+    """_find_first_gc returns -1 when segment has no G or C."""
+    assert _find_first_gc("ATATATATAT") == -1
+
+
+def test_find_last_gc_returns_minus_one_for_at_only():
+    """_find_last_gc returns -1 when segment has no G or C."""
+    assert _find_last_gc("ATATATATAT") == -1
+
+
+def test_expand_and_validate_returns_none_when_criteria_unmet():
+    """_expand_and_validate returns None when expanded region fails GC/OE thresholds."""
+    # Sequence mostly AT with a tiny GC seed - expansion won't meet min_len=200
+    seq = "A" * 100 + "GC" * 30 + "A" * 100
+    result = _expand_and_validate(seq, 100, 200, 50.0, 0.6)
+    assert result is None

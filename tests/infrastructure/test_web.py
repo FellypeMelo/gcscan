@@ -68,3 +68,36 @@ def test_render_advanced_tab():
         _render_advanced_tab(sw_res, cpg_res, sw_params)
         assert mock_st.altair_chart.called
         assert mock_st.table.called
+
+
+def test_render_sidebar_with_sliding_window():
+    """Cover components.py lines 21-22: sidebar with sliding window enabled."""
+    with patch("src.infrastructure.web.components.st") as mock_st:
+        mock_st.sidebar = MagicMock()
+        mock_st.file_uploader.return_value = []
+        mock_st.checkbox.side_effect = [True, False]
+        mock_st.number_input.side_effect = [200, 100]
+
+        files, do_sw, w, s, do_cpg = render_sidebar()
+
+        assert do_sw is True
+        assert w == 200
+        assert s == 100
+
+
+def test_render_overview_tab_histogram():
+    """Cover components.py lines 71-72: histogram branch for count >= 20."""
+    results = {f"s{i}": float(i * 5) for i in range(20)}
+    stats = {"count": 20, "mean": 47.5, "std_dev": 28.7, "median": 47.5}
+    with patch("src.infrastructure.web.components.st") as mock_st:
+        from src.infrastructure.web.components import _render_overview_tab
+        _render_overview_tab(results, stats)
+        assert mock_st.pyplot.called
+
+
+def test_render_advanced_tab_empty_warning():
+    """Cover components.py lines 86-87: warning when no advanced analysis data."""
+    with patch("src.infrastructure.web.components.st") as mock_st:
+        from src.infrastructure.web.components import _render_advanced_tab
+        _render_advanced_tab({}, {}, {'window': 100, 'step': 50})
+        mock_st.warning.assert_called_once()

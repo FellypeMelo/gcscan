@@ -24,3 +24,13 @@ def test_save_results_to_csv(tmp_path):
         assert header == ["Sequence_ID", "GC_Content_Percent"]
         row1 = next(reader)
         assert row1 == ["seq1", "50.00"]
+
+
+def test_read_fasta_with_blank_lines(tmp_path):
+    """Cover fasta.py line 15: blank lines within the FASTA are skipped."""
+    content = ">seq1\nATGC\n\n\n>seq2\n\nGCGC\n\n"
+    fasta_file = tmp_path / "blanks.fasta"
+    fasta_file.write_text(content)
+
+    results = list(read_fasta(str(fasta_file)))
+    assert results == [("seq1", "ATGC"), ("seq2", "GCGC")]
