@@ -37,4 +37,6 @@ jobs:
 
       - name: Run Security/Dependency Audit
         run: |
-          pip-audit
+          # CVE-2025-68463: XXE in Bio.Entrez — GCScan never imports Bio.Entrez (only Bio.SeqIO).
+          # No fix version available upstream. Revisit when biopython >1.86 is released.
+          pip-audit --ignore-vuln CVE-2025-68463
